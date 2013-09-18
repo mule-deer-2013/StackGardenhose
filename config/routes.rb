@@ -1,4 +1,10 @@
 StackGardenhose::Application.routes.draw do
+
+  resources :users, only: [:new, :create, :show]
+  resources :questions, only: [:index, :new, :create, :show] do
+    resources :answers, only: [:new, :create]
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
