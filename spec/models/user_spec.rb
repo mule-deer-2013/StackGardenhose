@@ -10,10 +10,10 @@ describe User do
   end
 
   context 'creating a user' do
-    subject { User.new(name: "Richie", email: "richie@gmail.com", password_hash: "123" ) }
+    subject { User.new(name: "Richie", email: "richie@gmail.com", password_digest: "123" ) }
     it { should be_instance_of User }
       its (:name) { should == "Richie" }
       its (:email) { should == "richie@gmail.com" }
-      its (:password_hash) { should == "123" }
+      its (:password_digest) { should == "123" }
   end
 end
