@@ -1,9 +1,12 @@
 class QuestionsController < ApplicationController
+  include ApplicationHelper
+  
   def index
     @questions = Question.all
   end
 
   def new
+    redirect_to_signup
     @question = Question.new
   end
 
