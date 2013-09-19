@@ -9,7 +9,16 @@
 <% end %>
 
 <% if flash[:error] %>
-  <p><%= flash[:error] %></p>
+  <div id="errorExplanation">
+  <h2><%= pluralize(flash[:error].count, "error") %>
+    prohibited this question from being saved:</h2>
+    <ul>
+      <% flash[:error].full_messages.each do |msg| %>
+        <li><%= msg %></li><br />
+      <% end %>
+    </ul>
+  </div>
 <% end %>
+
 
 <%= link_to "Back to Home!", questions_path %>
