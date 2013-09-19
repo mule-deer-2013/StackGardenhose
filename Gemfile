@@ -20,9 +20,11 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara'
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'selenium-webdriver'
 end
 
 gem 'bcrypt-ruby', '~> 3.0.0'
