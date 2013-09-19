@@ -1,0 +1,18 @@
+<%= link_to "Back to Home!", root_path %>
+<h1>Below is the selected question</h1>
+
+<h3><%= @question.title %></h3>
+<h4><%= @question.body %></h4>
+
+<% if @question.answers.any? %>
+<ul>
+  <% @question.answers.each do |answer| %>
+    <li><%= answer.body %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+
+<%= render partial: 'answers/new', locals: { question: @question, answer: Answer.new }%>
+

@@ -1,0 +1,9 @@
+<h3>Submit an answer</h3>
+
+<%= form_for [question, answer] do |f| %>
+  <%= f.label "What do you think?" %><br />
+  <%= hidden_field_tag("answer[question_id]", question.id) %>
+  <%= f.text_area :body %><br />
+  <%= f.submit "Answer it!" %>
+<% end %>
+<%= render partial: 'errors' %>
