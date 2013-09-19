@@ -18,13 +18,13 @@ describe User do
   end
 
   context 'creating an invalid new user' do
-    it "should raise error if parameter is missing" do
-      user = User.new()
-      user.errors.size.should > 0
+    subject { User.new()}
+    it {should validate_presence_of(:name)}
+    it {should validate_presence_of(:email)}
+    it {should validate_presence_of(:password)}
     end
 
-    it "with already take ename should raise error" do
+    it "with already taken name should raise error" do
     end
-  end
 
 end
