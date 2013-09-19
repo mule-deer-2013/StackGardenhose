@@ -5,6 +5,9 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(params[:answer])
+    @answer.user_id = session[:current_user_id]
+    @answer.save
+
     if @answer.save
       redirect_to question_path(@answer.question)
     else
