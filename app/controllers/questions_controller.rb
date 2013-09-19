@@ -8,8 +8,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    q = Question.new(params[:question])
-    if q.save
+    @question = Question.new(params[:question])
+    if @question.save
       redirect_to root_path
     else
       flash[:error] = "There was a problem with your question"
