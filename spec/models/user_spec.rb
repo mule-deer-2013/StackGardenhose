@@ -16,4 +16,15 @@ describe User do
       its (:email) { should == "richie@gmail.com" }
       its (:password) { should == "123" }
   end
+
+  context 'creating an invalid new user' do
+    it "should raise error if parameter is missing" do
+      user = User.new()
+      user.errors.size.should > 0
+    end
+
+    it "with already take ename should raise error" do
+    end
+  end
+
 end
