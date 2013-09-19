@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.password = params[:password_digest]
     if @user.save
+      session[:current_user_id] = @user.id
       redirect_to @user
     else
       flash.now[:error] = "Invalid signup"

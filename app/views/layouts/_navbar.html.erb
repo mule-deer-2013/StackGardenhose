@@ -1,4 +1,11 @@
 <div class="navbar">
-  <%=link_to "Logout", :sessions, url   %>
-  <%= %>
+  <% if current_user %>
+    <%= link_to "Logout", signout_path, method: 'delete' %>
+  <% end %>
 </div>
+
+
+  
+    
+  
+ 
