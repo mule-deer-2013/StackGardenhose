@@ -12,7 +12,6 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to root_path
     else
-      # flash[:error] = "There was a problem with your question"
       flash[:error] = @question.errors
       render :new
     end
