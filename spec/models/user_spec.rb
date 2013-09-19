@@ -9,6 +9,7 @@ describe User do
     it { should have_many :answers }
   end
 
+#bad
   context 'creating a user' do
     subject { User.new(name: "Richie", email: "richie@gmail.com", password: "123" ) }
     it { should be_instance_of User }
@@ -18,13 +19,9 @@ describe User do
   end
 
   context 'creating an invalid new user' do
-    subject { User.new()}
     it {should validate_presence_of(:name)}
     it {should validate_presence_of(:email)}
-    it {should validate_presence_of(:password)}
-    end
-
-    it "with already taken name should raise error" do
-    end
+    it {should validate_uniqueness_of(:name)}
+  end
 
 end

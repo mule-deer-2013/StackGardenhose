@@ -3,9 +3,6 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :questions
   has_many :answers
-  validates_presence_of :name, :email, :password
-  # validates :name, presence: true
-
-  # include BCrypt
+  validates :name, :email, :presence => true, :uniqueness => true
 
 end
