@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe User do
+  let(:user) { create(:user) }
+
+  it "should have a name" do
+    expect(user.name).not_to eq(nil)
+  end
+
   context '#questions' do
     it { should have_many :questions }
   end
@@ -16,4 +22,12 @@ describe User do
       its (:email) { should == "richie@gmail.com" }
       its (:password) { should == "123" }
   end
+
+  context 'creating an invalid new user' do
+    it {should validate_presence_of(:name)}
+    it {should validate_presence_of(:email)}
+    it {should validate_uniqueness_of(:name)}
+    it {should validate_uniqueness_of(:email)}
+  end
+
 end
