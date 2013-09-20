@@ -1,11 +1,6 @@
-// $(document).ready(function(){
-//   $('.upvote').on('ajax:succcess' function(e, data) {
-
-    
-//   }
-
-
-//     )
-
-
-// })
+$(document).ready(function(){
+  $('form').on('ajax:succcess' function(e, data) {
+    e.preventDefault();
+    $('')
+  })
+})
