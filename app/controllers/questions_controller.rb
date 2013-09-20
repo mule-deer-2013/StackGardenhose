@@ -22,6 +22,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @vote = Vote.new
     @question = Question.find params[:id]
   end
 
