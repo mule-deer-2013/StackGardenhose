@@ -15,5 +15,12 @@ class AnswersController < ApplicationController
       redirect_to question_path(@answer.question)
     end
   end
+  def edit
+
+  end
+
+  def update
+    
+  end
 
 end
