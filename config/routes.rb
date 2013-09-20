@@ -3,13 +3,13 @@ StackGardenhose::Application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
   resources :questions, only: [:index, :new, :create, :show] do
-    resources :answers, only: [:new, :create]
+    resources :answers, only: [:create]
   end
 
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :votes, only: [:create]
+  resources :votes, only: [:new, :create]
 
 
   match '/signup', to: 'users#new', via: 'get'

@@ -1,0 +1,21 @@
+<span class="upvote" >
+  <%= form_for @vote do |f| %>
+    <%= f.hidden_field :value, :value => 1 %>
+    <%= f.hidden_field :votable_id, :value => answer.id %>
+    <%= f.hidden_field :votable_type, :value => answer.class %>
+    <%= f.submit "Upvote" %>
+  <% end %> 
+</span>
+
+<span class="downvote">
+  <%= form_for @vote do |f| %>
+    <%= f.hidden_field :value, :value => -1 %>
+    <%= f.hidden_field :votable_id, :value => answer.id %>
+    <%= f.hidden_field :votable_type, :value => answer.class %>
+    <%= f.submit "Downvote" %>
+  <% end %>
+</span>
+
+
+
+

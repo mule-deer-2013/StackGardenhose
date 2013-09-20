@@ -7,9 +7,7 @@
 <% if @question.answers.any? %>
 <ul>
   <% @question.answers.each do |answer| %>
-    <li><%= answer.body %> | <strong>Total Votes: </strong> <%= answer.votes.count %> </li>
-
-
+    <li><%= answer.body %> | <strong>Karma: </strong> <%= answer.votes.where(value: 1).count - answer.votes.where(value: -1).count %> <%= render partial: "votes/form", locals: {answer: answer} %></li>
   <% end %>
 </ul>
 <% end %>
