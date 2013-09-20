@@ -1,6 +1,10 @@
 <%= link_to "Back to Home!", root_path %>
 <h1>Below is the selected question</h1>
-
+<div class="error-render">
+  <% if flash[:message] %>
+    <%= flash[:message] %>
+  <% end %>
+</div>
 <h3><%= @question.title %></h3>
 <h4><%= @question.body %></h4>
 
@@ -12,7 +16,8 @@
 </ul>
 <% end %>
 
-
 <% if @question.user_id != current_user.id %>
   <%= render 'answers/new',  question: @question, answer: @question.answers.build  if current_user %>
+<% else %>
+  <%= link_to "Edit your question", edit_question_path(@question) %>
 <% end%>

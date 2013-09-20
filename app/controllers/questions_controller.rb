@@ -26,4 +26,20 @@ class QuestionsController < ApplicationController
     @question = Question.find params[:id]
   end
 
+  def edit
+    @question = Question.find params[:id]
+    if current_user != @question.user
+      flash[:message] = "Sorry, only the creator can edit a question"
+      redirect_to @question
+    else
+      render :edit
+    end
+  end
+
+  def update
+    @question = Question.find params[:id]
+    @question.update_attributes(params[:question])
+    redirect_to @question
+  end
+
 end
