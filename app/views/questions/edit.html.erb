@@ -1,0 +1,7 @@
+<%= form_for @question, url: {action: "update"} do |f| %>
+<%= f.label "Title:" %>
+<%= f.text_field :title, :placeholder => @question.title %><br />
+<%= f.label "Your question:" %><br />
+<%= f.text_area :body, :placeholder => @question.body %><br />
+<%= f.submit "Update your question" %>
+<% end %>

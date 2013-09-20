@@ -18,10 +18,11 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'debugger'
+  gem 'capybara'
 end
 
 group :test do
-  gem 'capybara'
+  
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'

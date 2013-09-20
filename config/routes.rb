@@ -2,8 +2,8 @@ StackGardenhose::Application.routes.draw do
 
 
   resources :users, only: [:new, :create, :show]
-  resources :questions, only: [:index, :new, :create, :show] do
-    resources :answers, only: [:new, :create]
+  resources :questions, only: [:index, :new, :create, :show, :edit, :update] do
+    resources :answers, only: [:new, :create, :edit, :update]
   end
 
 
