@@ -19,7 +19,7 @@ Stuff this needs:
     > - added FactoryGirl: defined factories and included for some tests
   
   - moving code in the controller to helpers (sessions_helper)
-    > created current_user and redirect_to_signup helper methods
+    > created current_user and redirect_to_signup helper methods - see controllers/application_controller.rb
     
   - add more functionality to navbar 
     > nada, zippO
