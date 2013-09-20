@@ -10,15 +10,35 @@ Right now,
   - 
 
 Stuff this needs:
+###See notes from CineHerd team inline:
 
   - MORE TESTING (integration, controllers)
+    > Added unit and integration testing for 
+    > - validations on all models - responses, questions and users
+    > - configured Capybara login stub (see support folder)
+    > - added FactoryGirl: defined factories and included for some tests
+  
   - moving code in the controller to helpers (sessions_helper)
+    > created current_user and redirect_to_signup helper methods
+    
   - add more functionality to navbar 
+    > nada, zippO
+    
   - adding a authors to the questions viewing (showing who posted the question)
+    > nope
+    
   - if you want to, flesh out profile page. (add users questions and answers to questions)
+    > nada
+  
   - add edit and delete question and answers for users own content
+  
   - add voting?
+    > nope
+  
   -good luck
+   > - THANKS!
 
+  OTHER...
+  > switched from SQLite to PostgreSQL for database cleaner and integration testing
 
 
