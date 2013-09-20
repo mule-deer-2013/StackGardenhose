@@ -5,7 +5,7 @@ gem 'rails', '3.2.12'
 
 # This will change if we use a different database.
 # We'll just use sqlite for now
-gem 'sqlite3'
+gem 'pg'
 
 gem 'jquery-rails'
 
@@ -17,6 +17,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'debugger'
 end
 
 group :test do
@@ -25,6 +26,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 gem 'bcrypt-ruby', '~> 3.0.0'
