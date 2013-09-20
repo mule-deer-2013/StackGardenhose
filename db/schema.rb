@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918174855) do
+ActiveRecord::Schema.define(:version => 20130920185909) do
 
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(:version => 20130918174855) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "value"
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
   end
 
 end
