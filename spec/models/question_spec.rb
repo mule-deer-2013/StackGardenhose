@@ -2,10 +2,8 @@ require 'spec_helper'
 
 describe Question do
   let(:user) { create(:user) }
-  # let(:user) { User.create(name: 'dan', email: 'dan@dan.com', password: 'dan') }
   let(:invalid_question) { Question.new() }
   let(:valid_question)  { build(:question) }
-  # let(:valid_question) { Question.new(title: "Title2", body: "Awesome content", user_id: user.id) }
 
   context "creation" do
     context "with invalid information" do
