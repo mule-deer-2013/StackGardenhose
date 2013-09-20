@@ -7,7 +7,9 @@
 <% if @question.answers.any? %>
 <ul>
   <% @question.answers.each do |answer| %>
-    <li><%= answer.body %></li>
+    <li><%= answer.body %> | <strong>Total Votes: </strong> <%= answer.votes.count %> </li>
+
+
   <% end %>
 </ul>
 <% end %>

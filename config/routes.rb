@@ -9,6 +9,8 @@ StackGardenhose::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
+  resources :votes, only: [:create]
+
 
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
