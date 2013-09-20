@@ -1,9 +1,11 @@
 require 'spec_helper'
 
 describe Question do
-  let(:user) { User.create(name: 'dan', email: 'dan@dan.com', password: 'dan') }
+  let(:user) { create(:user) }
+  # let(:user) { User.create(name: 'dan', email: 'dan@dan.com', password: 'dan') }
   let(:invalid_question) { Question.new() }
-  let(:valid_question) { Question.new(title: "Title2", body: "Awesome content", user_id: user.id) }
+  let(:valid_question)  { build(:question) }
+  # let(:valid_question) { Question.new(title: "Title2", body: "Awesome content", user_id: user.id) }
 
   context "creation" do
     context "with invalid information" do
@@ -42,10 +44,10 @@ describe Question do
       valid_question.save
     end
 
-    it "should be able to have many answers" do
-      10.times { valid_question.answers.create(user_id: user.id, body: "Answer text") }
-      expect(valid_question.answers.count).to eq(10)
-    end
+    # it "should be able to have many answers" do
+    #   10.times { valid_question.answers.create(user_id: user.id, body: "Answer text") }
+    #   expect(valid_question.answers.count).to eq(10)
+    # end
 
     it "should have a title and a body" do
       expect(valid_question.title).to be_an_instance_of(String)
