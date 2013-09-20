@@ -15,6 +15,6 @@
 <% end %>
 
 
-
-<%= render 'answers/new',  question: @question, answer: @question.answers.build  if current_user %>
-
+<% if @question.user_id != current_user.id %>
+  <%= render 'answers/new',  question: @question, answer: @question.answers.build  if current_user %>
+<% end%>
