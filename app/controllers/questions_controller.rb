@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
   include ApplicationHelper
+  include QuestionHelper
+
 
   def index
     @questions = Question.all
@@ -24,6 +26,7 @@ class QuestionsController < ApplicationController
   def show
     @vote = Vote.new
     @question = Question.find params[:id]
+    @can_answer = user_can_answer?(@question)
   end
 
   def edit

@@ -15,10 +15,9 @@ class AnswersController < ApplicationController
       redirect_to question_path(@answer.question)
     end
   end
+
   def edit
     @answer = Answer.find(params[:id])
-    p @answer
-    p current_user
     @question = @answer.question
     if current_user.id == @answer.user_id
       render :edit
