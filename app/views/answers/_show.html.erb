@@ -1,10 +1,11 @@
 
 <li><%= answer.body %> 
-  | <strong>Karma: </strong> 
-  <%= answer.votes.where(value: 1).count - answer.votes.where(value: -1).count %>
+  | <strong>Karma: </strong>
   <% if current_user %>
     <% if current_user.id != answer.user_id %>
-      <%= render partial: "votes/form", locals: {answer: answer} %>
+      <div class='vote_form_container'>
+        <%= render partial: "votes/form", locals: {answer: answer} %>
+      </div>
     <% else %>
       <%= link_to "Edit Your Answer", edit_question_answer_path(answer) %>
     <%end %>

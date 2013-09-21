@@ -1,21 +1,21 @@
-<span class="upvote" >
-  <%= form_for @vote do |f| %>
+<div>
+
+  <div>
+    <%= render partial: "votes/counter", locals: {answer: answer} %> 
+  </div>
+
+  <%= form_for @vote, remote: true do |f| %>
     <%= f.hidden_field :value, :value => 1 %>
     <%= f.hidden_field :votable_id, :value => answer.id %>
     <%= f.hidden_field :votable_type, :value => answer.class %>
     <%= f.submit "Upvote" %>
-  <% end %> 
-</span>
+  <% end %>
 
-<span class="downvote">
-  <%= form_for @vote do |f| %>
+  <%= form_for @vote, remote: true do |f| %>  
     <%= f.hidden_field :value, :value => -1 %>
     <%= f.hidden_field :votable_id, :value => answer.id %>
     <%= f.hidden_field :votable_type, :value => answer.class %>
     <%= f.submit "Downvote" %>
-  <% end %>
-</span>
+  <% end %> 
 
-
-
-
+</div>
