@@ -1,6 +1,11 @@
 <div class="navbar">
+  <%= link_to "All Questions", root_path %>
   <% if current_user %>
+    <%= link_to "Your Profile", current_user %>
     <%= link_to "Logout", signout_path, method: 'delete' %>
+  <% else %>
+    <%= link_to "Sign In", signin_path %>
+    <%= link_to "Sign Up", signup_path%>
   <% end %>
 </div>
 
