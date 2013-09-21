@@ -6,6 +6,9 @@
   <% end %>
 </div>
 <h3><%= @question.title %></h3>
+
+<%= render partial: 'votes/form', locals: { votable: @question } %>
+
 <h4><%= @question.body %></h4>
 
 <% if @question.answers.any? %>
