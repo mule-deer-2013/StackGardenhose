@@ -1,0 +1,6 @@
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.label "What do you think?" %><br />
+  <%= f.text_area :body, :placeholder => @answer.body %><br />
+  <%= f.submit "Yeah, this is a way better answer. Send it!" %>
+<% end %>
+  <%= render partial: 'errors' %>

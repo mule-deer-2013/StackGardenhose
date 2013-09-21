@@ -16,11 +16,23 @@ class AnswersController < ApplicationController
     end
   end
   def edit
+    @answer = Answer.find(params[:id])
+    p @answer
+    p current_user
+    @question = @answer.question
+    if current_user.id == @answer.user_id
+      render :edit
+    else
+      flash[:message] = "Must be author of answer to edit"
+      redirect_to question_path(@question, @answer)
+    end
 
   end
 
   def update
-    
+    @answer = Answer.find(params[:id])
+    @answer.update_attributes(params[:answer])
+    redirect_to question_path(@answer.question)
   end
 
 end

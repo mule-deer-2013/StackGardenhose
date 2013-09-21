@@ -6,7 +6,7 @@
     <% if current_user.id != answer.user_id %>
       <%= render partial: "votes/form", locals: {answer: answer} %>
     <% else %>
-      <%= link_to "Edit Your Answer", edit_question_answer_path(answer) %>
+      <%= link_to "Edit Your Answer", edit_question_answer_path(@question, answer) %>
     <%end %>
   <%end %>
 </li>
