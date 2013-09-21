@@ -7,7 +7,7 @@
         <%= render partial: "votes/form", locals: {answer: answer} %>
       </div>
     <% else %>
-      <%= link_to "Edit Your Answer", edit_question_answer_path(answer) %>
+      <%= link_to "Edit Your Answer", edit_question_answer_path(@question, answer) %>
     <%end %>
   <%end %>
 </li>
