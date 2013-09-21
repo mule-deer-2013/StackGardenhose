@@ -6,4 +6,5 @@ module Authentication
   def redirect_to_signup
     redirect_to signup_path unless current_user
   end
+
 end
