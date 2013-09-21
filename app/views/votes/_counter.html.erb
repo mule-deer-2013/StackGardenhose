@@ -1,1 +1,1 @@
-<%= votable.votes.where(value: 1).count - votable.votes.where(value: -1).count %>
+<strong>Karma: </strong><%= votable.votes.where(value: 1).count - votable.votes.where(value: -1).count %>
