@@ -4,7 +4,8 @@ describe User do
   let(:user) { create(:user) }
 
   it "should have a name" do
-    expect(user.name).not_to eq(nil)
+    # REVIEW: you're testing active record rather than validations.
+    expect(user.name).not_to be_nil
   end
 
   context '#questions' do
@@ -16,11 +17,13 @@ describe User do
   end
 
   context 'creating a user' do
+    # REVIEW: why not use the user factory
     subject { User.new(name: "Richie", email: "richie@gmail.com", password: "123" ) }
     it { should be_instance_of User }
-      its (:name) { should == "Richie" }
-      its (:email) { should == "richie@gmail.com" }
-      its (:password) { should == "123" }
+    #REVIEW: you're testing active record.
+    its (:name) { should eq "Richie" }
+    its (:email) { should eq "richie@gmail.com" }
+    its (:password) { should eq "123" }
   end
 
   context 'creating an invalid new user' do

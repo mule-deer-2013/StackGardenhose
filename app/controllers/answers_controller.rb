@@ -1,11 +1,12 @@
 class AnswersController < ApplicationController
 
+  #REVIEW: you're not using this action, remove it.
   def new
   end
 
   def create
     @answer = Answer.new(params[:answer])
-    @answer.user_id = session[:current_user_id]
+    @answer.user = current_user
     @answer.save
 
     if @answer.save

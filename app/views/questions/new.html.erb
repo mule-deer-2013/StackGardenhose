@@ -3,11 +3,12 @@
 <%= form_for @question do |f| %>
   <%= f.label "Title" %>
   <%= f.text_field :title %><br>
+  <%= f.errors[:title] %>
   <%= f.label "Content" %><br>
   <%= f.text_area :body %><br>
   <%= f.submit "Create Question" %>
 <% end %>
 
-<%= render partial: 'errors' %>
+<%= render partial: 'errors', :object => @question %>
 
 <%= link_to "Back to Home!", questions_path %>

@@ -5,4 +5,12 @@ class Question < ActiveRecord::Base
   has_many :votes, :as => :votable
   validates :title, :body, :user, presence: true
 
+
+  def can_answer?(user)
+    !owner? user
+  end
+
+  def owner?(user)
+    self.user == user
+  end
 end

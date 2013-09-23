@@ -9,3 +9,9 @@
     </ul>
   </div>
 <% end %>
+
+<% if object.errors.any? %>
+  <% object.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>

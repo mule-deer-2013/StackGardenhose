@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe Question do
+
   let(:user) { create(:user) }
-  let(:invalid_question) { Question.new() }
+  let(:question) { create :question, :user => user }
+  let(:invalid_question) { Question.new }
   let(:valid_question)  { build(:question) }
 
   context "creation" do
@@ -10,19 +12,22 @@ describe Question do
       it "should raise an error when user is absent" do
         invalid_question.title = "Title"
         invalid_question.body = "Blah blah blah"
+        invalid_question.save
+        expect(invalid_question.errors).to include("user can't be blank")
+        expect{ invalid_question.save! }.to raise_error # this is a bad test
+      end
+
+      # this could be relpaced with: it { should validate_presence_of :title }
+      it "should raise an error when title is absent" do
+        invalid_question.user = user
+        invalid_question.body = "Blah blah blah"
         expect{ invalid_question.save! }.to raise_error
       end
 
-      it "should raise an error when title is absent" do
-        invalid_question.user_id = user.id
-        invalid_question.body = "Blah blah blah"
-        expect{ invalid_question.save! }.to raise_error 
-      end
-
       it "should raise an error when body is absent" do
-        invalid_question.user_id = user.id
+        invalid_question.user = user
         invalid_question.title = "Title"
-        expect{ invalid_question.save! }.to raise_error 
+        expect{ invalid_question.save! }.to raise_error
       end
     end
 
@@ -32,7 +37,9 @@ describe Question do
       end
 
       it "should successfully create a new question" do
-        expect{valid_question.save!}.to change{Question.count}.by(1)
+        expect {
+          valid_question.save
+        }.to change(Question, :count).by(1)
       end
     end
   end
@@ -47,6 +54,7 @@ describe Question do
     #   expect(valid_question.answers.count).to eq(10)
     # end
 
+    # bad test, test for format
     it "should have a title and a body" do
       expect(valid_question.title).to be_an_instance_of(String)
       expect(valid_question.body).to be_an_instance_of(String)

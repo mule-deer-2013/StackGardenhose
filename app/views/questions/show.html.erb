@@ -18,11 +18,9 @@
 </ul>
 <% end %>
 
-<% if current_user %>
-  <% if @question.user_id != current_user.id  && @can_answer %>
-    <%= render 'answers/new', question: @question, answer: @question.answers.build %>
-  <% else %>
-    <%= link_to "Edit your question", edit_question_path(@question) %>
-  <% end%>
-<% end %>
+<% if current_user && current_user.can_answer?(@question) %>
+  <%= render 'answers/new', question: @question, answer: @question.answers.build %>
+<% else %>
+  <%= link_to "Edit your question", edit_question_path(@question) %>
+<% end%>
 
