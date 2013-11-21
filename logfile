@@ -1,0 +1,7 @@
+LOG:  database system was shut down at 2013-10-29 00:29:49 PDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  role "stackg" does not exist
+FATAL:  role "stackg" does not exist
+FATAL:  database "stack_test" does not exist
+FATAL:  database "stack_dev" does not exist

@@ -6,7 +6,7 @@ gem 'rails', '3.2.12'
 # This will change if we use a different database.
 # We'll just use sqlite for now
 gem 'pg'
-
+gem 'newrelic_rpm'
 gem 'jquery-rails'
 
 # Gems used only for assets and not required

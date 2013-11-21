@@ -8,6 +8,7 @@ development:
   database: stack_dev #convention for postgres
   pool: 5
   timeout: 5000
+  password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
