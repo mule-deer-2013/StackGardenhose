@@ -9,8 +9,8 @@ Right now,
   - user can log out (clear session)
   - 
 
-Stuff this needs:
-###See notes from CineHerd team inline:
+
+
 
   - MORE TESTING (integration, controllers)
     > Added unit and integration testing for 
@@ -32,11 +32,7 @@ Stuff this needs:
   
   - add edit and delete question and answers for users own content
   
-  - add voting?
-    > nope
-  
-  -good luck
-   > - THANKS!
+
 
   OTHER...
   > switched from SQLite to PostgreSQL for database cleaner and integration testing
